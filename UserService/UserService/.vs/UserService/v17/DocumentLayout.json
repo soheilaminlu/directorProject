@@ -1,12 +1,139 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\asha project\\UserService\\UserService\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3F702784-A281-4379-AFBE-9FCA6020EBA1}|UserService\\UserService.csproj|c:\\users\\sejron.com\\desktop\\asha\\directorproject\\userservice\\userservice\\userservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3F702784-A281-4379-AFBE-9FCA6020EBA1}|UserService\\UserService.csproj|solutionrelative:userservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F702784-A281-4379-AFBE-9FCA6020EBA1}|UserService\\UserService.csproj|c:\\users\\sejron.com\\desktop\\asha\\directorproject\\userservice\\userservice\\userservice\\userservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3F702784-A281-4379-AFBE-9FCA6020EBA1}|UserService\\UserService.csproj|solutionrelative:userservice\\userservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F702784-A281-4379-AFBE-9FCA6020EBA1}|UserService\\UserService.csproj|c:\\users\\sejron.com\\desktop\\asha\\directorproject\\userservice\\userservice\\userservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F702784-A281-4379-AFBE-9FCA6020EBA1}|UserService\\UserService.csproj|solutionrelative:userservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F702784-A281-4379-AFBE-9FCA6020EBA1}|UserService\\UserService.csproj|c:\\users\\sejron.com\\desktop\\asha\\directorproject\\userservice\\userservice\\userservice\\model\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F702784-A281-4379-AFBE-9FCA6020EBA1}|UserService\\UserService.csproj|solutionrelative:userservice\\model\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F702784-A281-4379-AFBE-9FCA6020EBA1}|UserService\\UserService.csproj|c:\\users\\sejron.com\\desktop\\asha\\directorproject\\userservice\\userservice\\userservice\\data\\userdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F702784-A281-4379-AFBE-9FCA6020EBA1}|UserService\\UserService.csproj|solutionrelative:userservice\\data\\userdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F702784-A281-4379-AFBE-9FCA6020EBA1}|UserService\\UserService.csproj|c:\\users\\sejron.com\\desktop\\asha\\directorproject\\userservice\\userservice\\userservice\\model\\roleenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F702784-A281-4379-AFBE-9FCA6020EBA1}|UserService\\UserService.csproj|solutionrelative:userservice\\model\\roleenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F702784-A281-4379-AFBE-9FCA6020EBA1}|UserService\\UserService.csproj|c:\\users\\sejron.com\\desktop\\asha\\directorproject\\userservice\\userservice\\userservice\\userservice.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{3F702784-A281-4379-AFBE-9FCA6020EBA1}|UserService\\UserService.csproj|solutionrelative:userservice\\userservice.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RoleEnum.cs",
+              "DocumentMoniker": "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\UserService\\Model\\RoleEnum.cs",
+              "RelativeDocumentMoniker": "UserService\\Model\\RoleEnum.cs",
+              "ToolTip": "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\UserService\\Model\\RoleEnum.cs",
+              "RelativeToolTip": "UserService\\Model\\RoleEnum.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T19:50:17.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserModel.cs",
+              "DocumentMoniker": "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\UserService\\Model\\UserModel.cs",
+              "RelativeDocumentMoniker": "UserService\\Model\\UserModel.cs",
+              "ToolTip": "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\UserService\\Model\\UserModel.cs",
+              "RelativeToolTip": "UserService\\Model\\UserModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T19:49:52.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\UserService\\Data\\UserDbContext.cs",
+              "RelativeDocumentMoniker": "UserService\\Data\\UserDbContext.cs",
+              "ToolTip": "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\UserService\\Data\\UserDbContext.cs",
+              "RelativeToolTip": "UserService\\Data\\UserDbContext.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAABgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T19:36:31.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\UserService\\appsettings.json",
+              "RelativeDocumentMoniker": "UserService\\appsettings.json",
+              "ToolTip": "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\UserService\\appsettings.json",
+              "RelativeToolTip": "UserService\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-14T19:30:38.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserService",
+              "DocumentMoniker": "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\UserService\\UserService.csproj",
+              "RelativeDocumentMoniker": "UserService\\UserService.csproj",
+              "ToolTip": "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\UserService\\UserService.csproj",
+              "RelativeToolTip": "UserService\\UserService.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-12-14T19:25:51.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\UserService\\Program.cs",
+              "RelativeDocumentMoniker": "UserService\\Program.cs",
+              "ToolTip": "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\UserService\\Program.cs",
+              "RelativeToolTip": "UserService\\Program.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAD4vxYAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T19:25:39.409Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserService.http",
+              "DocumentMoniker": "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\UserService\\UserService.http",
+              "RelativeDocumentMoniker": "UserService\\UserService.http",
+              "ToolTip": "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\UserService\\UserService.http",
+              "RelativeToolTip": "UserService\\UserService.http",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2024-12-14T19:25:38.141Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
