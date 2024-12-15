@@ -5,6 +5,11 @@ namespace UserService.Model;
     public class UserModel : IdentityUser
     {
       public int Id {  get; set; }
-     public RoleEnum Role { get; set; }    
+    public RoleEnum Role { get; set; }
+
+    public UserModel()
+    {
+        Role = RoleEnum.User;
     }
+}
 

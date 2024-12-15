@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\UserService\\UserService.csproj": {}
+    "C:\\Users\\user\\Desktop\\DirProject\\directorProject\\UserService\\UserService\\UserService\\UserService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\UserService\\UserService.csproj": {
+    "C:\\Users\\user\\Desktop\\DirProject\\directorProject\\UserService\\UserService\\UserService\\UserService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\UserService\\UserService.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\DirProject\\directorProject\\UserService\\UserService\\UserService\\UserService.csproj",
         "projectName": "UserService",
-        "projectPath": "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\UserService\\UserService.csproj",
-        "packagesPath": "C:\\Users\\sejron.com\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sejron.com\\Desktop\\asha\\directorProject\\UserService\\UserService\\UserService\\obj\\",
+        "projectPath": "C:\\Users\\user\\Desktop\\DirProject\\directorProject\\UserService\\UserService\\UserService\\UserService.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\DirProject\\directorProject\\UserService\\UserService\\UserService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sejron.com\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -106,7 +106,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.307/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
