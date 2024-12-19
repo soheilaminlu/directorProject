@@ -34,8 +34,6 @@ C:\Users\sejron.com\Desktop\asha\directorProject\UserService\UserService\UserSer
 C:\Users\sejron.com\Desktop\asha\directorProject\UserService\UserService\UserService\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 C:\Users\sejron.com\Desktop\asha\directorProject\UserService\UserService\UserService\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\sejron.com\Desktop\asha\directorProject\UserService\UserService\UserService\bin\Debug\net8.0\Mono.TextTemplating.dll
-C:\Users\sejron.com\Desktop\asha\directorProject\UserService\UserService\UserService\bin\Debug\net8.0\Npgsql.dll
-C:\Users\sejron.com\Desktop\asha\directorProject\UserService\UserService\UserService\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\sejron.com\Desktop\asha\directorProject\UserService\UserService\UserService\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\sejron.com\Desktop\asha\directorProject\UserService\UserService\UserService\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\sejron.com\Desktop\asha\directorProject\UserService\UserService\UserService\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -139,3 +137,5 @@ C:\Users\sejron.com\Desktop\asha\directorProject\UserService\UserService\UserSer
 C:\Users\sejron.com\Desktop\asha\directorProject\UserService\UserService\UserService\obj\Debug\net8.0\UserService.pdb
 C:\Users\sejron.com\Desktop\asha\directorProject\UserService\UserService\UserService\obj\Debug\net8.0\UserService.genruntimeconfig.cache
 C:\Users\sejron.com\Desktop\asha\directorProject\UserService\UserService\UserService\obj\Debug\net8.0\ref\UserService.dll
+C:\Users\sejron.com\Desktop\asha\directorProject\UserService\UserService\UserService\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\sejron.com\Desktop\asha\directorProject\UserService\UserService\UserService\bin\Debug\net8.0\StackExchange.Redis.dll

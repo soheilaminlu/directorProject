@@ -20,7 +20,7 @@ builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("DbStrConnection");
 builder.Services.AddDbContext<UserDbContext>(options =>
-    options.UseNpgsql(connectionString));
+    options.UseSqlServer(connectionString));
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -41,6 +41,7 @@ builder.Services.Configure<JwtModel>(builder.Configuration.GetSection("JwtSettin
 
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+builder.Services.AddScoped<IRedisService, RedisService>();
 
 builder.Services.AddIdentity<UserModel, IdentityRole>()
     .AddEntityFrameworkStores<UserDbContext>()

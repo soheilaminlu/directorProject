@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using UserService.Configuration;
 using UserService.Data;
 using UserService.Interface;
 using UserService.Model;
@@ -9,11 +10,14 @@ namespace UserService.Services
     public class AuthenticationService : IAuthenticationService
     {
         private readonly UserManager<UserModel> _userManager;
+        private readonly IRedisService _redisService;
         private readonly IJwtService _jwtService;
         private readonly ILogger<AuthenticationService> _logger;
 
-        public AuthenticationService(UserManager<UserModel> userManager , IJwtService jwtService , ILogger<AuthenticationService> logger)
+        public AuthenticationService(UserManager<UserModel> userManager , IJwtService jwtService , 
+            ILogger<AuthenticationService> logger , IRedisService redisService)
         {
+            _redisService = redisService;
             _userManager = userManager;
             _jwtService = jwtService; 
             _logger = logger;   
@@ -24,7 +28,7 @@ namespace UserService.Services
             return user;    
         }
 
-        public async Task<string> LoginAsync(string email, string password)
+        public async Task<TokenModel> LoginAsync(string email, string password)
         {
            var existingUser = await GetUserWithEmailAsync(email).ConfigureAwait(false);
             if (existingUser == null || !await _userManager.CheckPasswordAsync(existingUser, password))
@@ -32,7 +36,13 @@ namespace UserService.Services
                 return null;
             }
             var token = _jwtService.GenerateToken(email, existingUser.Role.ToString());
-            return token;
+            var refreshToken = _jwtService.GenerateRefreshToken(token);
+            await _redisService.SaveRefreshTokenAsync(refreshToken , email);
+            return new TokenModel
+            {
+                AccessToken = token,
+                refreshToken = refreshToken,
+            };
         }
 
         public Task LogoutAsync()
@@ -40,7 +50,7 @@ namespace UserService.Services
             throw new NotImplementedException();
         }
 
-        public async Task<string> SignUpAsync(string username, string email, string password , RoleEnum role)
+        public async Task<TokenModel> SignUpAsync(string username, string email, string password , RoleEnum role)
         {
             var user = new UserModel
            { 
@@ -56,7 +66,13 @@ namespace UserService.Services
                 return null;
             }
             var token  = _jwtService.GenerateToken(user.Email , user.Role.ToString());
-            return token;
+            var refreshToken = _jwtService.GenerateRefreshToken(email);
+             await _redisService.SaveRefreshTokenAsync(refreshToken, email);
+            return new TokenModel
+            {
+                AccessToken = token,
+                refreshToken = refreshToken,
+            };
         }
     }
 }
