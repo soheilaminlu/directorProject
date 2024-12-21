@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -8,6 +8,7 @@ using UserService.Data;
 using UserService.Interface;
 using UserService.Model;
 using UserService.Services;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,9 +19,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var connectionString = builder.Configuration.GetConnectionString("DbStrConnection");
-builder.Services.AddDbContext<UserDbContext>(options =>
-    options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DbStrConnection")));
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -39,13 +39,16 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.Configure<JwtModel>(builder.Configuration.GetSection("JwtSettings"));
 
-builder.Services.AddScoped<IJwtService, JwtService>();
-builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
-builder.Services.AddScoped<IRedisService, RedisService>();
+builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
+{
+    var configuration = ConfigurationOptions.Parse("localhost:6379", true);
+    return ConnectionMultiplexer.Connect(configuration);
+});
 
-builder.Services.AddIdentity<UserModel, IdentityRole>()
-    .AddEntityFrameworkStores<UserDbContext>()
-    .AddDefaultTokenProviders();
+
+builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<IAuthService, AuthenticationService>();
+builder.Services.AddScoped<IRedisService, RedisService>();
 
 var app = builder.Build();
 

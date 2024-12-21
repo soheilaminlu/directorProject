@@ -2,6 +2,8 @@
 {
     public interface IRedisService
     {
-        Task SaveRefreshTokenAsync(string token, string email);
+        Task SaveRefreshTokenAsync(string email , string token);
+        Task<string> GetRefreshTokenAsync(string key);
+        Task DeleteRefreshTokenAsync(string key);
     }
 }

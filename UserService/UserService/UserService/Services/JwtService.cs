@@ -15,14 +15,13 @@ namespace UserService.Services;
     {
         _jwtModel = jwtModel.Value;
     }
-    public string GenerateToken(string email , string role)
+    public string GenerateToken(string email)
     {
         var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtModel.SecretKey));
         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
         var claims = new[]
            {
                 new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Email , email),
-                new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Role, role)
             };
         var token = new JwtSecurityToken(
                issuer: _jwtModel.Issuer,
@@ -49,6 +48,13 @@ namespace UserService.Services;
                signingCredentials: credentials
             );
         return new JwtSecurityTokenHandler().WriteToken(token);
+    }
+
+    public IEnumerable<Claim> GetTokenClaim(string token)
+    {
+        var handler = new JwtSecurityTokenHandler();
+        var jwtToken =  handler.ReadJwtToken(token);
+        return jwtToken?.Claims;
     }
 }
 

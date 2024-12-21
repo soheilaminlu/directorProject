@@ -1,76 +1,91 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using BCrypt;
 using UserService.Configuration;
 using UserService.Data;
 using UserService.Interface;
 using UserService.Model;
+using UserService.Dto;
+using BCrypt.Net;
 
 namespace UserService.Services
 {
-    public class AuthenticationService : IAuthenticationService
+    public class AuthenticationService : IAuthService
     {
-        private readonly UserManager<UserModel> _userManager;
+        private readonly ApplicationDbContext _dbcontext;
         private readonly IRedisService _redisService;
         private readonly IJwtService _jwtService;
         private readonly ILogger<AuthenticationService> _logger;
 
-        public AuthenticationService(UserManager<UserModel> userManager , IJwtService jwtService , 
+        public AuthenticationService(ApplicationDbContext dbContext , IJwtService jwtService , 
             ILogger<AuthenticationService> logger , IRedisService redisService)
         {
             _redisService = redisService;
-            _userManager = userManager;
+            _dbcontext = dbContext;
             _jwtService = jwtService; 
             _logger = logger;   
         }
         public async Task<UserModel> GetUserWithEmailAsync(string email)
         {
-            var user = await _userManager.FindByEmailAsync(email);
-            return user;    
-        }
-
-        public async Task<TokenModel> LoginAsync(string email, string password)
-        {
-           var existingUser = await GetUserWithEmailAsync(email).ConfigureAwait(false);
-            if (existingUser == null || !await _userManager.CheckPasswordAsync(existingUser, password))
+               var user = await _dbcontext.Users.FirstOrDefaultAsync(u => u.email ==  email);
+            if (user == null)
             {
                 return null;
             }
-            var token = _jwtService.GenerateToken(email, existingUser.Role.ToString());
-            var refreshToken = _jwtService.GenerateRefreshToken(token);
-            await _redisService.SaveRefreshTokenAsync(refreshToken , email);
+            return user;
+        }
+
+        public async Task<TokenModel> LoginAsync(LoginDto loginUser)
+        {
+          
+            var user = await _dbcontext.Users.FirstOrDefaultAsync(u => u.email ==  loginUser.Email);
+            if (user == null)
+            {
+                return null;
+            }
+            var validatePassword = BCrypt.Net.BCrypt.Verify(loginUser.Password , user.password);
+            if (!validatePassword)
+            {
+                return null;
+            }
+            var accessToken = _jwtService.GenerateToken(user.email);
+            var refreshToken = _jwtService.GenerateRefreshToken(user.email);
+            await _redisService.SaveRefreshTokenAsync(refreshToken, user.email);
             return new TokenModel
             {
-                AccessToken = token,
+                AccessToken = accessToken,
                 refreshToken = refreshToken,
             };
         }
 
-        public Task LogoutAsync()
+        public async Task LogoutAsync(string email)
         {
-            throw new NotImplementedException();
+            await _redisService.DeleteRefreshTokenAsync(email);
         }
 
-        public async Task<TokenModel> SignUpAsync(string username, string email, string password , RoleEnum role)
+        public async Task<TokenModel> SignUpAsync(SignupDto createUserDto)
         {
-            var user = new UserModel
-           { 
-                Email = email,  
-                UserName = username,
-                PasswordHash = password,
-                Role = role 
-           };
-            var createUser = await _userManager.CreateAsync(user, password);
-            if (!createUser.Succeeded)
+            var exsitingUser = await GetUserWithEmailAsync(createUserDto.Email);
+            if (exsitingUser != null)
             {
-                _logger.LogError("User creation failed for {Username}", username);
+                throw new ArgumentException("user Already exist");
+            }
+            var user = new UserModel {
+                email = createUserDto.Email,
+                username = createUserDto.Username,
+                password = BCrypt.Net.BCrypt.HashPassword(createUserDto.Password)
+            };
+            if (user == null)
+            {
                 return null;
             }
-            var token  = _jwtService.GenerateToken(user.Email , user.Role.ToString());
-            var refreshToken = _jwtService.GenerateRefreshToken(email);
-             await _redisService.SaveRefreshTokenAsync(refreshToken, email);
+            var accessToken = _jwtService.GenerateToken(user.email);
+            var refreshToken = _jwtService.GenerateRefreshToken(user.email);
+            await _dbcontext.Users.AddAsync(user);
+            await _dbcontext.SaveChangesAsync();
             return new TokenModel
             {
-                AccessToken = token,
+                AccessToken = accessToken,
                 refreshToken = refreshToken,
             };
         }

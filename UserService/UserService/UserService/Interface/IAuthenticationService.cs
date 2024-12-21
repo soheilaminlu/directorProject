@@ -1,13 +1,14 @@
 ﻿using UserService.Configuration;
+using UserService.Dto;
 using UserService.Model;
 
 namespace UserService.Interface
 {
-    public interface IAuthenticationService
+    public interface IAuthService
     {
-        Task<TokenModel> SignUpAsync(string username, string email, string password , RoleEnum role);
-        Task<TokenModel> LoginAsync(string email, string password);
-        Task LogoutAsync();
+        Task<TokenModel> SignUpAsync(SignupDto signupDto);
+        Task<TokenModel> LoginAsync(LoginDto loginDto);
+        Task LogoutAsync(string email);
         Task<UserModel> GetUserWithEmailAsync(string email);
     }
 }
